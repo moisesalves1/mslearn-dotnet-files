@@ -5,6 +5,19 @@ var currentDirectory = Directory.GetCurrentDirectory();
 var storesDirectory = Path.Combine(currentDirectory, "stores");
 
 var salesFiles = FindFiles(storesDirectory);
+var filePath = Path.Combine(Directory.GetCurrentDirectory(), "stores","201","newDir");
+
+
+bool doesDirectoryExist = Directory.Exists(filePath);
+if (doesDirectoryExist){
+    Console.WriteLine("Diretório existe");
+} else {
+    Console.WriteLine("Diretório não existe");
+    Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "stores","201","newDir"));
+    Console.WriteLine("Diretório criado");
+}
+
+File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "greeting.txt"), "Hello World!");
 
 foreach (var file in salesFiles)
 {
